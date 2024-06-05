@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb1fammb10100"]
+
+[ext_resource type="Texture2D" uid="uid://d3frkwaabiixy" path="res://assets/sprites/cat-removebg-preview.png" id="1_cpi1b"]
+[ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_l6chq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rih7"]
+atlas = ExtResource("1_cpi1b")
+region = Rect2(0, 0, 360, 450)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4glcr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rih7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2b6h0"]
+size = Vector2(15.3346, 19.7584)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(565, 415)
+collision_layer = 2
+script = ExtResource("1_l6chq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4glcr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10.5, 44.3)
+scale = Vector2(10.7047, 10.802)
+shape = SubResource("RectangleShape2D_2b6h0")
+
+[node name="Weapon" type="Node" parent="."]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7sdj5823n4jx"]
+
+[ext_resource type="Texture2D" uid="uid://wflyrqsshwl0" path="res://assets/sprites/ak47_no_bg.png" id="1_r285c"]
+[ext_resource type="Script" path="res://scripts/AK.gd" id="2_qgc50"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6me7x"]
+atlas = ExtResource("1_r285c")
+region = Rect2(0, 0, 573, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iybmg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6me7x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(0.215972, 0.215972)
+sprite_frames = SubResource("SpriteFrames_iybmg")
+autoplay = "default"
+script = ExtResource("2_qgc50")

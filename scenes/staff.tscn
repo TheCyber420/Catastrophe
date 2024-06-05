@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyvgxjowfdvr5"]
+
+[ext_resource type="Texture2D" uid="uid://bs8gnji8uyntu" path="res://assets/sprites/staff_nobg (2).png" id="1_prgcs"]
+[ext_resource type="Script" path="res://scripts/staff.gd" id="2_ufesl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybqhf"]
+atlas = ExtResource("1_prgcs")
+region = Rect2(0, 0, 499, 499)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rixvr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybqhf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+position = Vector2(133, 145)
+rotation = 1.22173
+scale = Vector2(0.299599, 0.299599)
+sprite_frames = SubResource("SpriteFrames_rixvr")
+script = ExtResource("2_ufesl")
