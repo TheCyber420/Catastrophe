@@ -8,6 +8,7 @@ var mouse_position = get_global_mouse_position()
 var equipped_weapon = null
 var offhand_weapon = null
 var weapon_offset = null
+var firing = false
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var weapon = $Weapon
@@ -36,6 +37,8 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func _process(_delta):
+	if firing:
+		equipped_weapon.fire()
 	mouse_position = get_global_mouse_position()
 	if equipped_weapon != null:
 		equipped_weapon.look_at(mouse_position)
@@ -51,8 +54,11 @@ func _process(_delta):
 			equipped_weapon.flip(true)
 		
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		equipped_weapon.fire()
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.is_pressed():
+			firing = true
+		else:
+			firing = false
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.is_pressed():
 		swop_weapon()
 		
